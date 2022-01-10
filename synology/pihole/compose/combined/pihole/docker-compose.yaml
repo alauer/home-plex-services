@@ -6,7 +6,6 @@ services:
     image: pihole/pihole:latest
     hostname: pihole
     domainname: thelauerfamily.us
-    mac_address: 3d:a4:f2:b6:82:36
     cap_add:
       - NET_ADMIN
     networks:
