@@ -9,6 +9,8 @@ services:
     mac_address: 3d:a4:f2:b6:82:36
     cap_add:
       - NET_ADMIN
+    networks:
+      - home
     ports:
       - 443/tcp
       - 53/tcp
