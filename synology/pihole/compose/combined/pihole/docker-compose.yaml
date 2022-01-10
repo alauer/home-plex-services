@@ -3,10 +3,10 @@ version: '2'
 services:
   pihole:
     container_name: pihole
-    image: pihole/pihole:4.0.0-1
+    image: pihole/pihole:latest
     hostname: pihole
-    domainname: my.network
-    mac_address: d0:ca:ab:cd:ef:01
+    domainname: thelauerfamily.us
+    mac_address: 3d:a4:f2:b6:82:36
     cap_add:
       - NET_ADMIN
     ports:
@@ -16,14 +16,14 @@ services:
       - 67/udp
       - 80/tcp
     environment:
-      ServerIP: 1092.168.123.201
+      ServerIP: 192.168.11.161
       WEBPASSWORD: ""
-      VIRTUAL_HOST: pihole.my.network
-      DNS1: 8.8.8.8
-      DNS2: 8.8.4.4
+      VIRTUAL_HOST: pihole.thelauerfamily.us
+      DNS1: 1.1.1.1
+      DNS2: 1.0.0.1
     volumes:
-      - /volume1/docker/dns/volume:/etc/pihole:rw
-      - /volume1/docker/dns/config/hosts:/etc/hosts:ro
-      - /volume1/docker/dns/config/resolv.conf:/etc/resolv.conf:ro
-      - /volume1/docker/dns/config/dnsmasq.conf:/etc/dnsmasq.d/02-network.conf:ro
+      - /volume1/docker/pihole/volume:/etc/pihole:rw
+      - /volume1/docker/pihole/config/hosts:/etc/hosts:ro
+      - /volume1/docker/pihole/config/resolv.conf:/etc/resolv.conf:ro
+      - /volume1/docker/pihole/config/dnsmasq.conf:/etc/dnsmasq.d/02-network.conf:ro
     restart: always
