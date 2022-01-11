@@ -1,2 +1,3 @@
-# files
-Files and downloads for http://tonylawrence.com
+# Files for running Pi-Hole inside Docker on Synology
+
+http://tonylawrence.com/posts/unix/synology/free-your-synology-ports

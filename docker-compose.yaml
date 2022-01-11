@@ -7,7 +7,7 @@ services:
       file: pihole/docker-compose.yaml
     networks:
       home:
-        ipv4_address: 192.168.11.161
+        ipv4_address: 192.168.11.253
      
 networks:
   home:
@@ -17,5 +17,5 @@ networks:
     ipam:
       config:
         - subnet: 192.168.11.0/24
-          gateway: 192.168.11.254
-          ip_range: 192.168.11.160/28
+          gateway: 192.168.11.1
+          ip_range: 192.168.11.192/26
