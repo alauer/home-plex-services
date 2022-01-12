@@ -30,3 +30,6 @@ networks:
   Plex:
     external:
       name: Plex
+  bridge:
+    external:
+      name: Bridge

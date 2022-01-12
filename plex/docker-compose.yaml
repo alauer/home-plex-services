@@ -26,7 +26,7 @@ services:
     cap_add:
       - NET_ADMIN
     networks:
-      - bridge
+      - Bridge
       - Plex
     ports:
       - "22877:22877/tcp"
