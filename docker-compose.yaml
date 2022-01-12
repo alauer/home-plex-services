@@ -1,4 +1,4 @@
-version: '2'
+version: '3.8'
 
 services:
   pihole:
@@ -8,14 +8,25 @@ services:
     networks:
       home:
         ipv4_address: 192.168.11.253
-     
+  qbittorrent:
+    extends:
+      service: qbittorrent
+      file: qbittorrent/docker-compose.yaml
+    networks:
+      home:
+        ipv4_address: 192.168.11.254
+      Plex:     
+
 networks:
   home:
     driver: macvlan
     driver_opts:
-      parent: eth0
+      parent: ens160
     ipam:
       config:
         - subnet: 192.168.11.0/24
           gateway: 192.168.11.1
           ip_range: 192.168.11.192/26
+  Plex:
+    external:
+      name: Plex
