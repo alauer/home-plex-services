@@ -11,7 +11,7 @@ services:
   qbittorrent:
     extends:
       service: qbittorrent
-      file: qbittorrent/docker-compose.yaml
+      file: plex/docker-compose.yaml
 
 networks:
   home:
@@ -29,3 +29,6 @@ networks:
   bridge:
     external:
       name: bridge
+  host:
+    external:
+      name: host

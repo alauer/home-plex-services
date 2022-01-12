@@ -1,13 +1,29 @@
 version: '2'
 
 services:
+  plex:
+    container_name: plex
+    image: plexinc/pms-docker:plexpass
+    hostname: plex
+    domainname: thelauerfamily.us
+    networks:
+      - host
+    environment:
+      TZ: 'Asia/Singapore'
+      HOME: '/config'
+      CHANGE_CONFIG_DIR_OWNERSHIP: 'true'
+    volumes:
+      - /volume1/docker/plex:/config:rw
+      - /volume1/Media/Library/Movies:/mnt/movies:rw
+      - /volume1/Media/Library/TVShows:/mnt/tvshows:rw
+      - /tmp:/transcode:rw
+    restart: always
+
   qbittorrent:
     container_name: qbittorrent-1
     image: binhex/arch-qbittorrentvpn:latest
     hostname: qbit
     domainname: thelauerfamily.us
-    cap_add:
-      - NET_ADMIN
     networks:
       - Plex
     ports:
