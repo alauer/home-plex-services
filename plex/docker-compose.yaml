@@ -26,7 +26,6 @@ services:
     cap_add:
       - NET_ADMIN
     networks:
-      - Bridge
       - Plex
     ports:
       - "22877:22877/tcp"
@@ -55,7 +54,6 @@ services:
     container_name: bazarr
     image: cr.hotio.dev/hotio/bazarr
     networks:
-      - bridge
       - Plex
     ports:
       - "6767:6767"
