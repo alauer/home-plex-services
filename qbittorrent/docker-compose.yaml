@@ -10,7 +10,6 @@ services:
       - NET_ADMIN
     networks:
       - home
-      - Plex
     ports:
       - 22877/tcp
       - 22877/udp
