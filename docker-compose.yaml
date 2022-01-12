@@ -33,6 +33,3 @@ networks:
   bridge:
     external:
       name: bridge
-  host:
-    external:
-      name: host
