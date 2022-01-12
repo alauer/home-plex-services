@@ -21,7 +21,7 @@ networks:
   home:
     driver: macvlan
     driver_opts:
-      parent: ens160
+      parent: eth0
     ipam:
       config:
         - subnet: 192.168.11.0/24
