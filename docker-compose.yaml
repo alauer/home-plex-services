@@ -12,9 +12,6 @@ services:
     extends:
       service: qbittorrent
       file: qbittorrent/docker-compose.yaml
-    networks:
-      home:
-        ipv4_address: 192.168.11.254
 
 networks:
   home:
@@ -29,3 +26,6 @@ networks:
   Plex:
     external:
       name: Plex
+  bridge:
+    external:
+      name: bridge
