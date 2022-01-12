@@ -11,10 +11,10 @@ services:
     networks:
       - Plex
     ports:
-      - 22877/tcp
-      - 22877/udp
-      - 8080/tcp
-      - 8118/tcp
+      - "22877:22877/tcp"
+      - "22877:22877/udp"
+      - "8080:8080/tcp"
+      - "8118:8118/udp"
     environment:
       TZ: 'Asia/Singapore'
       ENABLE_PRIVOXY: "yes"
