@@ -15,7 +15,6 @@ services:
     networks:
       home:
         ipv4_address: 192.168.11.254
-      Plex:     
 
 networks:
   home:
