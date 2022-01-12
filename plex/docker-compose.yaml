@@ -6,8 +6,7 @@ services:
     image: plexinc/pms-docker:plexpass
     hostname: plex
     domainname: thelauerfamily.us
-    networks:
-      - host
+    network_mode: "host"
     environment:
       TZ: 'Asia/Singapore'
       HOME: '/config'
