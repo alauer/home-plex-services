@@ -23,6 +23,7 @@ services:
     image: binhex/arch-qbittorrentvpn:latest
     hostname: qbit
     domainname: thelauerfamily.us
+    network_mode: "bridge"
     cap_add:
       - NET_ADMIN
     networks:
