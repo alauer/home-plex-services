@@ -16,7 +16,11 @@ services:
     extends:
       service: plex
       file: plex/docker-compose.yaml
-
+  bazarr:
+    extends:
+      service: bazarr
+      file: plex/docker-compose.yaml
+      
 networks:
   home:
     driver: macvlan
