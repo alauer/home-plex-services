@@ -12,6 +12,10 @@ services:
     extends:
       service: qbittorrent
       file: plex/docker-compose.yaml
+  plex:
+    extends:
+      service: plex
+      file: plex/docker-compose.yaml
 
 networks:
   home:
