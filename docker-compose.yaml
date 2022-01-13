@@ -15,6 +15,10 @@ services:
     networks:
       home:
         ipv4_address: 192.168.11.254
+  nzbget:
+    extends:
+      service: nzbget
+      file: plex/docker-compose.yaml
   plex:
     extends:
       service: plex
@@ -22,6 +26,22 @@ services:
   bazarr:
     extends:
       service: bazarr
+      file: plex/docker-compose.yaml
+  sonarr:
+    extends:
+      service: sonarr
+      file: plex/docker-compose.yaml
+  radarr:
+    extends:
+      service: radarr
+      file: plex/docker-compose.yaml
+  readarr:
+    extends:
+      service: readarr
+      file: plex/docker-compose.yaml
+  prowlarr:
+    extends:
+      service: prowlarr
       file: plex/docker-compose.yaml
 
 networks:
