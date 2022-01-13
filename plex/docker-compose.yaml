@@ -17,7 +17,22 @@ services:
       - /volume1/Media/Library/TVShows:/mnt/tvshows:rw
       - /tmp:/transcode:rw
     restart: always
-
+  nzbget:
+    container_name: nzbget
+    image: hotio/nzbget:latest
+    networks:
+      - Plex
+    ports:
+      - "6789:6789"
+    environment:
+      - PUID=1026
+      - PGID=100
+      - UMASK=002
+      - TZ=Asia/Singapore
+    volumes:
+      - /volume1/docker/nzbget/config:/config:rw
+      - /volume1/Media/Downloads/Usenet:/Media/Downloads/Usenet:rw
+    restart: always
   qbittorrent:
     container_name: qbittorrent-1
     image: binhex/arch-qbittorrentvpn:latest
@@ -65,4 +80,71 @@ services:
     volumes:
       - /volume1/docker/bazarr/config:/config:rw
       - /volume1/Media:/Media:rw
+    restart: always
+  sonarr:
+    container_name: sonarr
+    image: hotio/sonarr:release
+    networks:
+      - Plex
+    ports:
+      - "8989:8989"
+    environment:
+      - PUID=1026
+      - PGID=100
+      - UMASK=002
+      - TZ=Asia/Singapore
+      - CONFIG_DIR=/config
+    volumes:
+      - /volume1/docker/sonarr/config:/config:rw
+      - /volume1/Media:/Media:rw
+    restart: always
+  radarr:
+    container_name: radarr
+    image: hotio/radarr:nightly
+    networks:
+      - Plex
+    ports:
+      - "7878:7878"
+    environment:
+      - PUID=1026
+      - PGID=100
+      - UMASK=002
+      - TZ=Asia/Singapore
+      - CONFIG_DIR=/config
+    volumes:
+      - /volume1/docker/radarr/config:/config:rw
+      - /volume1/Media:/Media:rw
+    restart: always
+  readarr:
+    container_name: readarr
+    image: hotio/readarr:nightly
+    networks:
+      - Plex
+    ports:
+      - "8787:8787"
+    environment:
+      - PUID=1026
+      - PGID=100
+      - UMASK=002
+      - TZ=Asia/Singapore
+      - CONFIG_DIR=/config
+    volumes:
+      - /volume1/docker/readarr/config:/config:rw
+      - /volume1/Media:/Media:rw
+    restart: always
+  prowlarr:
+    container_name: prowlarr
+    image: hotio/prowlarr:testing
+    networks:
+      - Plex
+    ports:
+      - "9696:9696"
+    environment:
+      - PUID=1026
+      - PGID=100
+      - UMASK=002
+      - TZ=Asia/Singapore
+      - CONFIG_DIR=/config
+    volumes:
+      - /volume1/docker/prowlarr/config:/config:rw
     restart: always
