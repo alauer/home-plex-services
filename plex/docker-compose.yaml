@@ -34,7 +34,7 @@ services:
       - /volume1/Media/Downloads/Usenet:/Media/Downloads/Usenet:rw
     restart: always
   qbittorrent:
-    container_name: qbittorrent-1
+    container_name: qbittorrent
     image: binhex/arch-qbittorrentvpn:latest
     hostname: qbit
     domainname: thelauerfamily.us
