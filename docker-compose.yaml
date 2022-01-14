@@ -34,6 +34,8 @@ services:
       service: prowlarr
       file: plex/docker-compose.yaml
 
+
+networks:
   Plex:
     external:
       name: Plex
