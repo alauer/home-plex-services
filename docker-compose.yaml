@@ -5,9 +5,6 @@ services:
     extends:
       service: qbittorrent
       file: plex/docker-compose.yaml
-    networks:
-      home:
-        ipv4_address: 192.168.11.254
   nzbget:
     extends:
       service: nzbget
