@@ -83,7 +83,7 @@ services:
     restart: always
   sonarr:
     container_name: sonarr
-    image: hotio/sonarr:release
+    image: hotio/sonarr:nightly
     networks:
       - Plex
     ports:
