@@ -148,3 +148,18 @@ services:
     volumes:
       - /volume1/docker/prowlarr/config:/config:rw
     restart: always
+  overseer:
+    container_name: overseer
+    image: 	hotio/overseerr:release
+    networks:
+      - Plex
+    ports:
+      - "5055:5055"
+    environment:
+      - PUID=1026
+      - PGID=100
+      - UMASK=002
+      - TZ=Asia/Singapore
+    volumes:
+      - /volume1/docker/overseerr/config:/config:rw
+    restart: always
