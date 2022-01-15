@@ -148,8 +148,8 @@ services:
     volumes:
       - /volume1/docker/prowlarr/config:/config:rw
     restart: always
-  overseer:
-    container_name: overseer
+  overseerr:
+    container_name: overseerr
     image:  hotio/overseerr:release
     networks:
       - Plex
