@@ -33,9 +33,9 @@ services:
     extends:
       service: prowlarr
       file: plex/docker-compose.yaml
-  overseer:
+  overseerr:
     extends:
-      service: overseer
+      service: overseerr
       file: plex/docker-compose.yaml
 
 networks:
