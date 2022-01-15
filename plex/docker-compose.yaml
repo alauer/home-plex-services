@@ -150,7 +150,7 @@ services:
     restart: always
   overseer:
     container_name: overseer
-    image: 	hotio/overseer:release
+    image:  hotio/overseer:release
     networks:
       - Plex
     ports:
