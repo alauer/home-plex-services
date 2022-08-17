@@ -166,6 +166,8 @@ services:
     image: ghcr.io/tautulli/tautulli
     container_name: tautulli
     restart: unless-stopped
+    networks:
+      - Plex
     volumes:
       - /volume1/docker/tautulli/config:/config:rw
     environment:
