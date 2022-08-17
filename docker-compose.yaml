@@ -37,6 +37,10 @@ services:
     extends:
       service: overseerr
       file: plex/docker-compose.yaml
+  tautulli:
+    extends:
+      service: tautulli
+      file: plex/docker-compose.yaml
 
 networks:
   Plex:

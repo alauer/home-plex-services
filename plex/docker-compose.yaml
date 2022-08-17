@@ -162,3 +162,16 @@ services:
     volumes:
       - /volume1/docker/overseerr/config:/config:rw
     restart: always
+  tautulli:
+    image: ghcr.io/tautulli/tautulli
+    container_name: tautulli
+    restart: unless-stopped
+    volumes:
+      - /volume1/docker/tautulli/config:/config:rw
+    environment:
+      - PUID=1026
+      - PGID=100
+      - UMASK=002
+      - TZ=Asia/Singapore
+    ports:
+      - "8181:8181/tcp"
