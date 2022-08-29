@@ -170,6 +170,7 @@ services:
       - Plex
     volumes:
       - /volume1/docker/tautulli/config:/config:rw
+      - /volume1/docker/plex/Library/Application Support/Plex Media Server/Logs:/mnt/plexlogs:r
     environment:
       - PUID=1026
       - PGID=100
