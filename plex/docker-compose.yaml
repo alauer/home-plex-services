@@ -49,7 +49,7 @@ services:
     ports:
       - "22877:22877/tcp"
       - "22877:22877/udp"
-      - "8080:8080/tcp"
+      - "18080:18080/tcp"
       - "8118:8118/udp"
     environment:
       TZ: 'Asia/Singapore'
@@ -60,7 +60,7 @@ services:
       STRICT_PORT_FORWARD: "yes"
       VPN_ENABLED: "yes"
       VPN_PROV: airvpn
-      WEBUI_PORT: 8080
+      WEBUI_PORT: 18080
       UMASK: 000
       PUID: 1026
       PGID: 100
