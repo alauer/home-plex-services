@@ -169,7 +169,7 @@ services:
     networks:
       - Plex
     ports:
-      - "5055:5055"
+      - "5055"
     environment:
       - PUID=1026
       - PGID=100
@@ -179,7 +179,12 @@ services:
       - /volume1/docker/overseerr/config:/config:rw
     restart: always
     labels:
-      - "traefik.enable=false"
+      - "traefik.enable=true"
+      - "traefik.http.routers.heimdall.rule=Host(`overseer.thelauerfamily.us`)"
+      - "traefik.http.routers.heimdall.entrypoints=web"
+      - "traefik.http.routers.heimdall-secure.rule=Host(`overseer.thelauerfamily.us`)"
+      - "traefik.http.routers.heimdall-secure.entrypoints=websecure"
+      - "traefik.http.routers.heimdall-secure.tls.certresolver=letsencrypt"
   tautulli:
     image: ghcr.io/tautulli/tautulli
     container_name: tautulli
