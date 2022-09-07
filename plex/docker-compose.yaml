@@ -182,6 +182,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.overseer.rule=Host(`overseer.thelauerfamily.us`)"
       - "traefik.http.routers.overseer.entrypoints=web"
+      - "traefik.http.routers.overseer-external.rule=Host(`overseer.thelauerfamily.us`)"
+      - "traefik.http.routers.overseer-external.entrypoints=webexternal"
       - "traefik.http.routers.overseer-secure.rule=Host(`overseer.thelauerfamily.us`)"
       - "traefik.http.routers.overseer-secure.entrypoints=websecure"
       - "traefik.http.routers.overseer-secure.tls.certresolver=letsencrypt"
