@@ -180,11 +180,11 @@ services:
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.heimdall.rule=Host(`overseer.thelauerfamily.us`)"
-      - "traefik.http.routers.heimdall.entrypoints=web"
-      - "traefik.http.routers.heimdall-secure.rule=Host(`overseer.thelauerfamily.us`)"
-      - "traefik.http.routers.heimdall-secure.entrypoints=websecure"
-      - "traefik.http.routers.heimdall-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.overseer.rule=Host(`overseer.thelauerfamily.us`)"
+      - "traefik.http.routers.overseer.entrypoints=web"
+      - "traefik.http.routers.overseer-secure.rule=Host(`overseer.thelauerfamily.us`)"
+      - "traefik.http.routers.overseer-secure.entrypoints=websecure"
+      - "traefik.http.routers.overseer-secure.tls.certresolver=letsencrypt"
   tautulli:
     image: ghcr.io/tautulli/tautulli
     container_name: tautulli
