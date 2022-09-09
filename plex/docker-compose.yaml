@@ -37,9 +37,9 @@ services:
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.phpmyadmin.rule=Host(`nzbget.thelauerfamily.us`)"
-      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
-      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.nzbget.rule=Host(`nzbget.thelauerfamily.us`)"
+      - "traefik.http.routers.nzbget.entrypoints=websecure"
+      - "traefik.http.routers.nzbget.tls.certresolver=letsencrypt"
   qbittorrent:
     container_name: qbittorrent
     image: binhex/arch-qbittorrentvpn:latest
@@ -73,10 +73,10 @@ services:
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.phpmyadmin.rule=Host(`qbit.thelauerfamily.us`)"
-      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
-      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
-      - "traefik.http.services.grafana.loadbalancer.server.port=18080"
+      - "traefik.http.routers.qbittorrent.rule=Host(`qbittorrent.thelauerfamily.us`)"
+      - "traefik.http.routers.qbittorrent.entrypoints=websecure"
+      - "traefik.http.routers.qbittorrent.tls.certresolver=letsencrypt"
+      - "traefik.http.services.qbittorrent.loadbalancer.server.port=18080"
   bazarr:
     container_name: bazarr
     image: cr.hotio.dev/hotio/bazarr:nightly-1.0.3-beta.26
@@ -95,9 +95,9 @@ services:
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.phpmyadmin.rule=Host(`bazarr.thelauerfamily.us`)"
-      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
-      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.bazarr.rule=Host(`bazarr.thelauerfamily.us`)"
+      - "traefik.http.routers.bazarr.entrypoints=websecure"
+      - "traefik.http.routers.bazarr.tls.certresolver=letsencrypt"
   sonarr:
     container_name: sonarr
     image: hotio/sonarr:nightly
@@ -117,9 +117,9 @@ services:
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.phpmyadmin.rule=Host(`sonarr.thelauerfamily.us`)"
-      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
-      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.sonarr.rule=Host(`sonarr.thelauerfamily.us`)"
+      - "traefik.http.routers.sonarr.entrypoints=websecure"
+      - "traefik.http.routers.sonarr.tls.certresolver=letsencrypt"
   radarr:
     container_name: radarr
     image: hotio/radarr:nightly
@@ -139,9 +139,9 @@ services:
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.phpmyadmin.rule=Host(`radarr.thelauerfamily.us`)"
-      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
-      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.radarr.rule=Host(`radarr.thelauerfamily.us`)"
+      - "traefik.http.routers.radarr.entrypoints=websecure"
+      - "traefik.http.routers.radarr.tls.certresolver=letsencrypt"
   readarr:
     container_name: readarr
     image: hotio/readarr:nightly
@@ -161,9 +161,9 @@ services:
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.phpmyadmin.rule=Host(`readarr.thelauerfamily.us`)"
-      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
-      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.readarr.rule=Host(`readarr.thelauerfamily.us`)"
+      - "traefik.http.routers.readarr.entrypoints=websecure"
+      - "traefik.http.routers.readarr.tls.certresolver=letsencrypt"
   prowlarr:
     container_name: prowlarr
     image: hotio/prowlarr:testing
@@ -182,9 +182,9 @@ services:
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.phpmyadmin.rule=Host(`prowlarr.thelauerfamily.us`)"
-      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
-      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.prowlarr.rule=Host(`prowlarr.thelauerfamily.us`)"
+      - "traefik.http.routers.prowlarr.entrypoints=websecure"
+      - "traefik.http.routers.prowlarr.tls.certresolver=letsencrypt"
   overseerr:
     container_name: overseerr
     image:  hotio/overseerr:release
@@ -225,6 +225,6 @@ services:
       - "8181/tcp"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.phpmyadmin.rule=Host(`tautilli.thelauerfamily.us`)"
-      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
-      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.tautilli.rule=Host(`tautilli.thelauerfamily.us`)"
+      - "traefik.http.routers.tautilli.entrypoints=websecure"
+      - "traefik.http.routers.tautilli.tls.certresolver=letsencrypt"
