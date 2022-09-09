@@ -225,6 +225,6 @@ services:
       - "8181/tcp"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.tautilli.rule=Host(`tautilli.thelauerfamily.us`)"
-      - "traefik.http.routers.tautilli.entrypoints=websecure"
-      - "traefik.http.routers.tautilli.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.tautulli.rule=Host(`tautulli.thelauerfamily.us`)"
+      - "traefik.http.routers.tautulli.entrypoints=websecure"
+      - "traefik.http.routers.tautulli.tls.certresolver=letsencrypt"
