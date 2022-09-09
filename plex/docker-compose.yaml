@@ -36,7 +36,10 @@ services:
       - /volume1/Media/Downloads/Usenet:/Media/Downloads/Usenet:rw
     restart: always
     labels:
-      - "traefik.enable=false"
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`nzbget.thelauerfamily.us`)"
+      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
+      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
   qbittorrent:
     container_name: qbittorrent
     image: binhex/arch-qbittorrentvpn:latest
@@ -47,10 +50,10 @@ services:
     networks:
       - Plex
     ports:
-      - "22877:22877/tcp"
-      - "22877:22877/udp"
-      - "18080:18080/tcp"
-      - "8118:8118/udp"
+      - "22877/tcp"
+      - "22877/udp"
+      - "18080/tcp"
+      - "8118/udp"
     environment:
       TZ: 'Asia/Singapore'
       ENABLE_PRIVOXY: "yes"
@@ -69,14 +72,18 @@ services:
       - /volume1/docker/qbittorrentvpn/config:/config:rw
     restart: always
     labels:
-      - "traefik.enable=false"
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`qbit.thelauerfamily.us`)"
+      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
+      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
+      - "traefik.http.services.grafana.loadbalancer.server.port=18080"
   bazarr:
     container_name: bazarr
     image: cr.hotio.dev/hotio/bazarr:nightly-1.0.3-beta.26
     networks:
       - Plex
     ports:
-      - "6767:6767"
+      - "6767"
     environment:
       - PUID=1026
       - PGID=100
@@ -87,14 +94,17 @@ services:
       - /volume1/Media:/Media:rw
     restart: always
     labels:
-      - "traefik.enable=false"
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`bazarr.thelauerfamily.us`)"
+      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
+      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
   sonarr:
     container_name: sonarr
     image: hotio/sonarr:nightly
     networks:
       - Plex
     ports:
-      - "8989:8989"
+      - "8989"
     environment:
       - PUID=1026
       - PGID=100
@@ -106,14 +116,17 @@ services:
       - /volume1/Media:/Media:rw
     restart: always
     labels:
-      - "traefik.enable=false"
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`sonarr.thelauerfamily.us`)"
+      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
+      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
   radarr:
     container_name: radarr
     image: hotio/radarr:nightly
     networks:
       - Plex
     ports:
-      - "7878:7878"
+      - "7878"
     environment:
       - PUID=1026
       - PGID=100
@@ -125,14 +138,17 @@ services:
       - /volume1/Media:/Media:rw
     restart: always
     labels:
-      - "traefik.enable=false"
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`radarr.thelauerfamily.us`)"
+      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
+      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
   readarr:
     container_name: readarr
     image: hotio/readarr:nightly
     networks:
       - Plex
     ports:
-      - "8787:8787"
+      - "8787"
     environment:
       - PUID=1026
       - PGID=100
@@ -144,14 +160,17 @@ services:
       - /volume1/Media:/Media:rw
     restart: always
     labels:
-      - "traefik.enable=false"
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`readarr.thelauerfamily.us`)"
+      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
+      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
   prowlarr:
     container_name: prowlarr
     image: hotio/prowlarr:testing
     networks:
       - Plex
     ports:
-      - "9696:9696"
+      - "9696"
     environment:
       - PUID=1026
       - PGID=100
@@ -162,7 +181,10 @@ services:
       - /volume1/docker/prowlarr/config:/config:rw
     restart: always
     labels:
-      - "traefik.enable=false"
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`prowlarr.thelauerfamily.us`)"
+      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
+      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
   overseerr:
     container_name: overseerr
     image:  hotio/overseerr:release
@@ -200,6 +222,9 @@ services:
       - UMASK=002
       - TZ=Asia/Singapore
     ports:
-      - "8181:8181/tcp"
+      - "8181/tcp"
     labels:
-      - "traefik.enable=false"
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`tautilli.thelauerfamily.us`)"
+      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
+      - "traefik.http.routers.phpmyadmin.tls.certresolver=letsencrypt"
