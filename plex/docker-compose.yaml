@@ -207,6 +207,10 @@ services:
       - "traefik.http.routers.overseer-secure.rule=Host(`overseer.thelauerfamily.us`)"
       - "traefik.http.routers.overseer-secure.entrypoints=websecure"
       - "traefik.http.routers.overseer-secure.tls.certresolver=letsencrypt"
+      - "flame.type=application"
+      - "flame.name=Overseer"
+      - "flame.url=https://overseer.thelauerfamily.us"
+      - "flame.icon=icon-name"
   tautulli:
     image: ghcr.io/tautulli/tautulli
     container_name: tautulli
