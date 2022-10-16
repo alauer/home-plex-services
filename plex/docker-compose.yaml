@@ -239,8 +239,6 @@ services:
     volumes:
       - /volume1/docker/calibre/config:/config:rw
       - /volume1/Media:/Media:rw
-    networks:
-      - Plex      
     ports:
       - "8080"
       - "8081"

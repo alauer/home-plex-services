@@ -47,6 +47,6 @@ services:
       file: plex/docker-compose.yaml
 
 networks:
-  Plex:
-    external:
-      name: Plex
+  default:
+    name: Plex
+    external: true
