@@ -22,8 +22,6 @@ services:
   nzbget:
     container_name: nzbget
     image: hotio/nzbget:latest
-    networks:
-      - Plex
     ports:
       - "6789"
     environment:
@@ -47,8 +45,6 @@ services:
     domainname: thelauerfamily.us
     cap_add:
       - NET_ADMIN
-    networks:
-      - Plex
     ports:
       - "22877/tcp"
       - "22877/udp"
@@ -80,8 +76,6 @@ services:
   bazarr:
     container_name: bazarr
     image: cr.hotio.dev/hotio/bazarr:nightly-1.0.3-beta.26
-    networks:
-      - Plex
     ports:
       - "6767"
     environment:
@@ -101,8 +95,6 @@ services:
   sonarr:
     container_name: sonarr
     image: hotio/sonarr:nightly
-    networks:
-      - Plex
     ports:
       - "8989"
     environment:
@@ -123,8 +115,6 @@ services:
   radarr:
     container_name: radarr
     image: hotio/radarr:nightly
-    networks:
-      - Plex
     ports:
       - "7878"
     environment:
@@ -145,8 +135,6 @@ services:
   readarr:
     container_name: readarr
     image: hotio/readarr:nightly
-    networks:
-      - Plex
     ports:
       - "8787"
     environment:
@@ -167,8 +155,6 @@ services:
   prowlarr:
     container_name: prowlarr
     image: hotio/prowlarr:testing
-    networks:
-      - Plex
     ports:
       - "9696"
     environment:
@@ -188,8 +174,6 @@ services:
   overseerr:
     container_name: overseerr
     image:  hotio/overseerr:release
-    networks:
-      - Plex
     ports:
       - "5055"
     environment:
@@ -211,8 +195,6 @@ services:
     image: ghcr.io/tautulli/tautulli
     container_name: tautulli
     restart: unless-stopped
-    networks:
-      - Plex
     volumes:
       - /volume1/docker/tautulli/config:/config:rw
       - /volume1/docker/plex/Library/Application Support/Plex Media Server/Logs:/mnt/plexlogs:r
