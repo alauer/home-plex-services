@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   qbittorrent:
@@ -45,7 +45,7 @@ services:
     extends:
       service: calibre
       file: plex/docker-compose.yaml
-      
+
 networks:
   Plex:
     external:
