@@ -41,10 +41,10 @@ services:
     extends:
       service: tautulli
       file: plex/docker-compose.yaml
-  calibre:
-    extends:
-      service: calibre
-      file: plex/docker-compose.yaml
+  # calibre:
+  #   extends:
+  #     service: calibre
+  #     file: plex/docker-compose.yaml
 
 networks:
   default:
