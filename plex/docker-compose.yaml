@@ -210,23 +210,23 @@ services:
       - "traefik.http.routers.tautulli.rule=Host(`tautulli.thelauerfamily.us`)"
       - "traefik.http.routers.tautulli.entrypoints=websecure"
       - "traefik.http.routers.tautulli.tls.certresolver=letsencrypt"
-  # calibre:
-  #   image: lscr.io/linuxserver/calibre:latest
-  #   container_name: calibre
-  #   environment:
-  #     - PUID=1026
-  #     - PGID=100
-  #     - UMASK=002
-  #     - TZ=Asia/Singapore
-  #   volumes:
-  #     - /volume1/docker/calibre/config:/config:rw
-  #     - /volume1/Media:/Media:rw
-  #   ports:
-  #     - "8080"
-  #     - "8081"
-  #   restart: unless-stopped
-  #   labels:
-  #     - "traefik.enable=true"
-  #     - "traefik.http.routers.sonarr.rule=Host(`calibre.thelauerfamily.us`)"
-  #     - "traefik.http.routers.sonarr.entrypoints=websecure"
-  #     - "traefik.http.routers.sonarr.tls.certresolver=letsencrypt"
+  calibre:
+    image: lscr.io/linuxserver/calibre:latest
+    container_name: calibre
+    environment:
+      - PUID=1026
+      - PGID=100
+      - UMASK=002
+      - TZ=Asia/Singapore
+    volumes:
+      - /volume1/docker/calibre/config:/config:rw
+      - /volume1/Media:/Media:rw
+    ports:
+      - "8080/tcp"
+      - "8081/tcp"
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sonarr.rule=Host(`calibre.thelauerfamily.us`)"
+      - "traefik.http.routers.sonarr.entrypoints=websecure"
+      - "traefik.http.routers.sonarr.tls.certresolver=letsencrypt"
