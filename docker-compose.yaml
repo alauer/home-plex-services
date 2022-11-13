@@ -29,6 +29,10 @@ services:
     extends:
       service: readarr
       file: plex/docker-compose.yaml
+    deploy:
+      resources:
+        limits:
+          memory: 512M    
   prowlarr:
     extends:
       service: prowlarr
