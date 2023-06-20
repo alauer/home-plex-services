@@ -38,6 +38,25 @@ services:
       - "traefik.http.routers.nzbget.rule=Host(`nzbget.thelauerfamily.us`)"
       - "traefik.http.routers.nzbget.entrypoints=websecure"
       - "traefik.http.routers.nzbget.tls.certresolver=letsencrypt"
+  sabnzbd:
+    container_name: sabnzbd
+    image: hotio/sabnzbd:latest
+    environment:
+      - PUID=1026
+      - PGID=100
+      - UMASK=002
+      - TZ=Asia/Singapore
+    volumes:
+      - /volume1/docker/sabnzbd/config:/config:rw
+      - /volume1/Media/Downloads/Usenet:/Media/Downloads/Usenet:rw
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sabnzbd.rule=Host(`sabnzbd.thelauerfamily.us`)"
+      - "traefik.http.routers.sabnzbd.entrypoints=websecure"
+      - "traefik.http.routers.sabnzbd.tls.certresolver=letsencrypt"  
+    ports:
+      - "8080"
+    restart: always
   qbittorrent:
     container_name: qbittorrent
     image: binhex/arch-qbittorrentvpn:latest
