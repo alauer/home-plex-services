@@ -9,6 +9,10 @@ services:
     extends:
       service: nzbget
       file: plex/docker-compose.yaml
+  sabnzbd:
+    extends:
+      service: sabnzbd
+      file: plex/docker-compose.yaml
   plex:
     extends:
       service: plex
