@@ -19,25 +19,25 @@ services:
     restart: always
     labels:
       - "traefik.enable=false"
-  nzbget:
-    container_name: nzbget
-    image: hotio/nzbget:latest
-    ports:
-      - "6789"
-    environment:
-      - PUID=1026
-      - PGID=100
-      - UMASK=002
-      - TZ=Asia/Singapore
-    volumes:
-      - /volume1/docker/nzbget/config:/config:rw
-      - /volume1/Media/Downloads/Usenet:/Media/Downloads/Usenet:rw
-    restart: always
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.nzbget.rule=Host(`nzbget.thelauerfamily.us`)"
-      - "traefik.http.routers.nzbget.entrypoints=websecure"
-      - "traefik.http.routers.nzbget.tls.certresolver=letsencrypt"
+  # nzbget:
+  #   container_name: nzbget
+  #   image: hotio/nzbget:latest
+  #   ports:
+  #     - "6789"
+  #   environment:
+  #     - PUID=1026
+  #     - PGID=100
+  #     - UMASK=002
+  #     - TZ=Asia/Singapore
+  #   volumes:
+  #     - /volume1/docker/nzbget/config:/config:rw
+  #     - /volume1/Media/Downloads/Usenet:/Media/Downloads/Usenet:rw
+  #   restart: always
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.nzbget.rule=Host(`nzbget.thelauerfamily.us`)"
+  #     - "traefik.http.routers.nzbget.entrypoints=websecure"
+  #     - "traefik.http.routers.nzbget.tls.certresolver=letsencrypt"
   sabnzbd:
     container_name: sabnzbd
     image: hotio/sabnzbd:latest
