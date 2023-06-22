@@ -230,7 +230,7 @@ services:
       - "traefik.http.routers.tautulli.entrypoints=websecure"
       - "traefik.http.routers.tautulli.tls.certresolver=letsencrypt"
   calibre:
-    image: lscr.io/linuxserver/calibre:latest
+    image: linuxserver/calibre:latest
     container_name: calibre
     environment:
       - PUID=1026
