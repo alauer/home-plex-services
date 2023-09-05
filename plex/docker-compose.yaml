@@ -94,7 +94,7 @@ services:
       - "traefik.http.services.qbittorrent.loadbalancer.server.port=18080"
   bazarr:
     container_name: bazarr
-    image: cr.hotio.dev/hotio/bazarr:nightly-1.0.3-beta.26
+    image: hotio/readarr:release
     ports:
       - "6767"
     environment:
